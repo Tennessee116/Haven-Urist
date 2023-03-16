@@ -18,7 +18,7 @@ jobs:
   MakeCL:
     runs-on: ubuntu-latest
     # discriminator to exclude forks
-    if: github.repository == 'Haven-13/Haven-Urist'
+    if: github.repository == 'Ofstation13/Haven-Urist'
     steps:
       - name: Checkout
         uses: actions/checkout@v1
