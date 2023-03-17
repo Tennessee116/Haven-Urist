@@ -54,6 +54,7 @@
 		dna.s_base = s_base
 		sync_organ_dna()
 	make_blood()
+	assign_stats()
 
 /mob/living/carbon/human/Destroy()
 	GLOB.human_mob_list -= src
