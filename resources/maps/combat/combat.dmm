@@ -1,0 +1,52 @@
+"a" = (/turf/space,/area/space)
+"b" = (/obj/structure/table/standard,/obj/random/toolbox,/turf/simulated/floor/tiled,/area/centcom)
+"f" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/centcom)
+"g" = (/turf/simulated/floor/tiled,/area/centcom)
+"j" = (/obj/item/weapon/material/sword/urist/basic,/turf/simulated/floor/tiled,/area/centcom)
+"q" = (/obj/item/weapon/melee/whip,/turf/simulated/floor/tiled,/area/centcom)
+"s" = (/turf/unsimulated/wall,/area/centcom)
+"x" = (/obj/structure/railing/mapped{dir = 8},/turf/simulated/floor,/area/centcom)
+"D" = (/obj/item/weapon/melee/telebaton,/turf/simulated/floor/tiled,/area/centcom)
+"G" = (/obj/structure/bed,/obj/effect/landmark{name = "JoinLate"},/turf/simulated/floor/tiled,/area/centcom)
+"L" = (/obj/structure/railing/mapped,/turf/simulated/floor,/area/centcom)
+"M" = (/obj/item/weapon/melee/energy/axe,/turf/simulated/floor/tiled,/area/centcom)
+"N" = (/obj/item/weapon/stool/padded,/turf/simulated/floor/tiled,/area/centcom)
+"Q" = (/obj/item/weapon/pickaxe,/turf/simulated/floor/tiled,/area/centcom)
+"T" = (/obj/structure/railing/mapped{dir = 4},/turf/simulated/floor,/area/centcom)
+"U" = (/obj/item/weapon/melee/baton,/turf/simulated/floor/tiled,/area/centcom)
+"W" = (/turf/simulated/wall/r_wall,/area/centcom)
+"X" = (/turf/simulated/wall,/area/centcom)
+"Z" = (/obj/structure/railing/mapped{dir = 1},/turf/simulated/floor,/area/centcom)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+assssssssssssssssssssssssssssa
+asWWWWWWWWWWWWWWWWWWWWWWWWWWsa
+asWGbGfGfGfXggggggXfGfGfGbGWsa
+asWggggggggggggggggggggggggWsa
+asWggggggggggggggggggggggggWsa
+asWggggggggXggggggXggggggggWsa
+asWggggXXZXXggggggXXZXXggggWsa
+asWggggXggggggggggggggXggggWsa
+asWggggxggggjgggggDgggTggggWsa
+asWggggXgNggggggNgggggXggggWsa
+asWXggXXgggMgggggggMggXXggXWsa
+asWggggggggggggqgggggggggggWsa
+asWgggggQggqgggggDgggggggggWsa
+asWggggggggggggggggggUgggggWsa
+asWggggggggjgggggggggggggggWsa
+asWggggggUgggUggggNgQggggggWsa
+asWggggggggggggggggggggggggWsa
+asWXggXXgDgNggggggggggXXggXWsa
+asWggggXgggggggMggggjgXggggWsa
+asWggggxggggggggggqgggTggggWsa
+asWggggXggggggggggggggXggggWsa
+asWggggXXLXXggggggXXLXXggggWsa
+asWggggggggXggggggXggggggggWsa
+asWggggggggggggggggggggggggWsa
+asWggggggggggggggggggggggggWsa
+asWGbGfGfGfXggggggXfGfGfGbGWsa
+asWWWWWWWWWWWWWWWWWWWWWWWWWWsa
+assssssssssssssssssssssssssssa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

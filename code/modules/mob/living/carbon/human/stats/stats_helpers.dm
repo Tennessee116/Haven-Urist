@@ -6,7 +6,7 @@
 			if(assign_stat in stats || !assign_stat.always_spawn)
 				continue
 			else
-				stats[assign_stat] = 0
+				stats[assign_stat] = rand(1, 5)
 	else
 		return
 

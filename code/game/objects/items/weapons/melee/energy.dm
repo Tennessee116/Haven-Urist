@@ -76,7 +76,6 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = 1
 	edge = 1
-	melee_accuracy_bonus = 15
 
 /obj/item/weapon/melee/energy/axe/activate(mob/living/user)
 	..()

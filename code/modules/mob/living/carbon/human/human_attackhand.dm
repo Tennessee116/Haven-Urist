@@ -32,7 +32,7 @@
 
 		if(istype(H.gloves, /obj/item/clothing/gloves/boxing/hologlove))
 			H.do_attack_animation(src)
-			var/damage = rand(0, 9)
+			var/damage = health_stat(STAT_BODY, 1, rand(0, 9))
 			if(!damage)
 				playsound(loc, 'resources/sound/weapons/punchmiss.ogg', 25, 1, -1)
 				visible_message("<span class='danger'>\The [H] has attempted to punch \the [src]!</span>")
@@ -125,7 +125,7 @@
 				attack_generic(H,rand(1,3),"punched")
 				return
 
-			var/rand_damage = rand(1, 5)
+			var/rand_damage = health_stat(STAT_BODY, 1, rand(0, 5))
 			var/block = 0
 			var/accurate = 0
 			var/hit_zone = H.zone_sel.selecting
@@ -148,11 +148,11 @@
 			switch(src.a_intent)
 				if(I_HELP)
 					// We didn't see this coming, so we get the full blow
-					rand_damage = 5
+					rand_damage = max(5, rand_damage)
 					accurate = 1
 				if(I_HURT, I_GRAB)
 					// We're in a fighting stance, there's a chance we block
-					if(MayMove() && src!=H && prob(20))
+					if(MayMove() && src!=H && prob_stat(STAT_VIGILANCE))
 						block = 1
 
 			if (M.grabbed_by.len)
@@ -161,7 +161,7 @@
 
 			if(src.grabbed_by.len || !src.MayMove() || src==H || H.species.species_flags & SPECIES_FLAG_NO_BLOCK)
 				accurate = 1 // certain circumstances make it impossible for us to evade punches
-				rand_damage = 5
+				rand_damage = max(5, rand_damage)
 
 			// Process evasion and blocking
 			var/miss_type = 0
@@ -193,7 +193,7 @@
 				*/
 				if(prob(80))
 					hit_zone = ran_zone(hit_zone)
-				if(prob(15) && hit_zone != BP_CHEST) // Missed!
+				if(prob(15 - stats[STAT_BODY]) && hit_zone != BP_CHEST) // Missed!
 					if(!src.lying)
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else

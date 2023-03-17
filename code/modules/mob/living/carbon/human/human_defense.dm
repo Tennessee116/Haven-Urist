@@ -143,8 +143,11 @@ meteor_act
 	if(user == src) // Attacking yourself can't miss
 		return target_zone
 
-	var/accuracy_penalty = 10*(I.w_class - ITEM_SIZE_NORMAL)
-	accuracy_penalty -= I.melee_accuracy_bonus
+	var/accuracy_penalty = 10 * I.w_class
+
+	if(istype(user, /mob/living/carbon/human))
+		var/mob/living/carbon/human/human_user = user
+		accuracy_penalty -= human_user.health_stat(STAT_BODY, 10, accuracy_penalty) / 5
 
 	var/hit_zone = get_zone_with_miss_chance(target_zone, src, accuracy_penalty)
 
@@ -281,7 +284,7 @@ meteor_act
 
 	//want the dislocation chance to be such that the limb is expected to dislocate after dealing a fraction of the damage needed to break the limb
 	var/dislocate_chance = effective_force/(dislocate_mult * organ.min_broken_damage * config.organ_health_multiplier)*100
-	if(prob(dislocate_chance * blocked_mult(blocked)))
+	if(prob(dislocate_chance * blocked_mult(blocked) - health_stat(STAT_BODY, 5, dislocate_chance)))
 		visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		organ.dislocate(1)
 		return 1
@@ -304,7 +307,7 @@ meteor_act
 	if(istype(AM,/obj/))
 		var/obj/O = AM
 
-		if(in_throw_mode && !get_active_hand() && speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
+		if(in_throw_mode && !get_active_hand() && speed <= THROWFORCE_SPEED_DIVISOR && prob_stat(STAT_VIGILANCE))	//empty active hand and we're in throw mode
 			if(!incapacitated())
 				if(is_turf(O.loc))
 					put_in_active_hand(O)
@@ -336,7 +339,7 @@ meteor_act
 			else if(shield_check)
 				return
 
-		if(!zone)
+		if(!zone && prob_stat(STAT_VIGILANCE))
 			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
 			return
 
@@ -385,7 +388,7 @@ meteor_act
 			mass = I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR
 		var/momentum = speed*mass
 
-		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
+		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED + health_stat(STAT_BODY, 0.5, momentum))
 			var/dir = get_dir(O.throw_source, src)
 
 			visible_message("<span class='warning'>\The [src] staggers under the impact!</span>","<span class='warning'>You stagger under the impact!</span>")
