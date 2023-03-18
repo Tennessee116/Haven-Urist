@@ -48,9 +48,10 @@ var/global/list/sparring_attack_cache = list()
 	return damage
 
 /datum/unarmed_attack/proc/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
-
 	if(target.stat == DEAD)
 		return
+
+	attack_damage += user.health_stat(STAT_BODY, attack_damage)
 
 	var/stun_chance = rand(0, 100)
 

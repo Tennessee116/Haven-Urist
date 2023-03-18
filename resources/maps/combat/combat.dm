@@ -1,4 +1,5 @@
 #if !defined(USING_MAP_DATUM)
+	#include "combat_jobs.dm"
 	#include "combat.dmm"
 
 	#define USING_MAP_DATUM /datum/map/combat
