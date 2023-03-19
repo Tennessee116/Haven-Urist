@@ -143,11 +143,7 @@ meteor_act
 	if(user == src) // Attacking yourself can't miss
 		return target_zone
 
-	var/accuracy_penalty = 10 * I.w_class
-
-	if(istype(user, /mob/living/carbon/human))
-		var/mob/living/carbon/human/human_user = user
-		accuracy_penalty -= human_user.health_stat(STAT_BODY, 10, accuracy_penalty) / 5
+	var/accuracy_penalty = 10*(I.w_class - ITEM_SIZE_NORMAL)
 
 	var/hit_zone = get_zone_with_miss_chance(target_zone, src, accuracy_penalty)
 

@@ -1,9 +1,9 @@
-/// Performs a raw stat check. Checks a stat against a target value.
+/// Performs a raw stat check. Checks the live stat against a target value.
 /mob/living/carbon/human/proc/check_stat(decl/stat/target, target_value)
 	if(stat_user)
 		var/success = FALSE
 
-		if(stats[target] >= target_value)
+		if(live_stats[target] >= target_value)
 			success = TRUE
 			to_chat(src, SPAN_NOTICE("Your [target.name] comes through!"))
 
@@ -29,7 +29,12 @@
 		if(!target_value)
 			target_value = stats[target]
 
-		var/health_stat = (stats[target] * max(0, (health/200)) - weakened - getBruteLoss()*0.1 - getFireLoss()*0.1)
+		var/organ_damage = 0
+
+//		for(var/obj/item/organ/damaged_organ in get_damaged_organs())
+//			I.damage +=
+
+		var/health_stat = (stats[target] * max(0, (health/200)) - weakened)
 
 		if(health_stat > target_value)
 			to_chat(src, SPAN_NOTICE("Your [target.name] comes through!"))
