@@ -2628,6 +2628,7 @@
 #include "code\unit_tests\_unit_tests.dm"
 #include "resources\Haven\Maps\TycloPluto\tyclo-pluto_define.dm"
 #include "resources\maps\_map_include.dm"
+#include "resources\maps\archon\archon_define.dm"
 #include "resources\maps\away\away_sites.dm"
 #include "resources\maps\away_sites_testing\away_sites_testing_define.dm"
 #include "resources\maps\example\example_define.dm"
